@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 
-const {
-    listarAvistamentos,
-    buscarAvistamento,
-    criarAvistamento,
-    atualizarAvistamento,
-    deletarAvistamento
-} = require("../controllers/avistamentoController");
+import {
+  listarAvistamentos,
+  buscarAvistamento,
+  criarAvistamento,
+  atualizarAvistamento,
+  deletarAvistamento,
+} from "../controllers/avistamentoController";
 
 const router = express.Router();
 
@@ -16,4 +16,4 @@ router.post("/", criarAvistamento);
 router.put("/:id", atualizarAvistamento);
 router.delete("/:id", deletarAvistamento);
 
-module.exports = router;
+export default router;
