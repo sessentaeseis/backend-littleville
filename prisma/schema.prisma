@@ -15,30 +15,30 @@ datasource db {
 
 model User {
   id        String      @id @default(uuid())
-  name      String
+  nome      String
   email     String      @unique
-  password  String
+  senha  String
   createdAt DateTime    @default(now())
-  sightings Sighting[]
+  avistamentos Avistamento[]
 
   @@map("users")
 }
 
-model Sighting {
+model Avistamento {
   id          String   @id @default(uuid())
-  title       String
-  description String
-  creature    String
-  location    String
-  spottedAt   DateTime
-  confidence  Int
+  titulo       String
+  descricao String
+  criatura    String
+  localizacao    String
+  encontradoEm   DateTime
+  confianca  Int
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  @@index([creature])
-  @@index([location])
-  @@index([spottedAt])
-  @@map("sightings")
+  @@index([criatura])
+  @@index([localizacao])
+  @@index([encontradoEm])
+  @@map("avistamentos")
 }
