@@ -30,7 +30,7 @@ model Avistamento {
   descricao String
   criatura    String
   localizacao    String
-  encontradoEm   DateTime
+  data   DateTime
   confianca  Int
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -39,6 +39,6 @@ model Avistamento {
 
   @@index([criatura])
   @@index([localizacao])
-  @@index([encontradoEm])
+  @@index([data])
   @@map("avistamentos")
 }
