@@ -62,6 +62,11 @@ export async function registrar(req, res) {
   }
 }
 
+export async function me(req, res) {
+  // req.user já vem populado (sem a senha) pelo authMiddleware
+  return res.status(200).json({ usuario: req.user })
+}
+
 export async function login(req, res) {
   try {
     const { email, senha } = req.body
